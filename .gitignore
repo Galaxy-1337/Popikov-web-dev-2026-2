@@ -1,9 +1,20 @@
-ve/
+# Виртуальное окружение
+.venv/
 venv/
+env/
+
+# IDE
+.idea/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.so
+
+# Файлы окружения и БД
 .env
 instance/
 *.db
-.vscode/
+*.sqlite.venv/
 .idea/
