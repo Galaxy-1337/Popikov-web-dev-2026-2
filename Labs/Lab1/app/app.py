@@ -2,11 +2,13 @@ import random
 from functools import lru_cache
 from flask import Flask, render_template, abort
 from faker import Faker
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 fake = Faker()
 
 app = Flask(__name__)
-application = app
+# Фикс для корректного отображения внутри Хаба
+app.wsgi_app = ProxyFix(app.wsgi_app, x_prefix=1)
 
 images_ids = ['7d4e9175-95ea-4c5f-8be5-92a6b708bb3c',
               '2d2ab7df-cdbc-48a8-a936-35bba702def5',
@@ -38,20 +40,17 @@ def posts_list():
     return sorted([generate_post(i) for i in range(5)], key=lambda p: p['date'], reverse=True)
 
 @app.route('/')
-def index():
-    return render_template('posts.html', title='Блог', posts=posts_list())
-
 @app.route('/posts')
 def posts():
-    return render_template('posts.html', title='Все посты', posts=posts_list())
+    return render_template('posts.html', title='Блог', posts=posts_list())
 
-@app.route('/posts/<int:post_id>')
-def post(post_id):
+@app.route('/posts/<int:index>')
+def post(index):
     try:
-        post_data = posts_list()[post_id]
+        p = posts_list()[index]
     except IndexError:
         abort(404)
-    return render_template('post.html', title=post_data['title'], post=post_data)
+    return render_template('post.html', title=p['title'], post=p)
 
 @app.route('/about')
 def about():

@@ -1,9 +1,9 @@
-# Файлы окружения Python
+ve/
 venv/
-env/
-.env
 __pycache__/
 *.pyc
-.DS_Store
+.env
+instance/
+*.db
 .vscode/
 .idea/
