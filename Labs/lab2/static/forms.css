@@ -1,0 +1,83 @@
+/* ==========================
+   СТИЛИ ДЛЯ ФОРМ И ВАЛИДАЦИИ
+   ========================== */
+
+/* Базовые стили для полей ввода */
+.form-input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    color: var(--text-primary);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(0, 87, 179, 0.1);
+}
+
+/* Стиль для невалидного поля (is-invalid) */
+.form-input.is-invalid {
+    border-color: var(--brand-secondary);
+    background-color: var(--brand-secondary-light);
+}
+
+.form-input.is-invalid:focus {
+    border-color: var(--brand-secondary);
+    box-shadow: 0 0 0 3px rgba(227, 18, 53, 0.1);
+}
+
+/* Контейнер с сообщением об ошибке */
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--brand-secondary);
+}
+
+/* Для textarea */
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Стили для меток */
+.form-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Группа формы */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Кнопка отправки */
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    color: white;
+    background: var(--brand-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background: var(--brand-primary-dark);
+    transform: translateY(-1px);
+}

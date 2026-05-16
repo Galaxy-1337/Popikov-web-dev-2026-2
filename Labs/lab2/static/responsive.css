@@ -1,0 +1,41 @@
+/* ============
+   АДАПТИВНОСТЬ
+   ============ */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-avatar-wrap {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  .post-detail-wrap {
+    padding: 2rem 1rem 4rem;
+  }
+  .navbar-inner {
+    padding: 0 1rem;
+  }
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .section-header {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="about-wrap">
+  <div class="about-card">
+
+    <!-- Аватар -->
+    <div class="about-avatar-wrap">
+      <img
+        class="about-avatar"
+        src="{{ url_for('static', filename='images/avatar.jpg') }}"
+        alt="Фото автора"
+      >
+    </div>
+
+    <!-- Информация -->
+    <div>
+      <h1 class="about-title">Попиков Иван</h1>
+      <span class="about-role">Группа 241-372 · Студент</span>
+
+      <p class="about-text">
+        Привет! Меня зовут Ваня, я студент 2 курса Московского Политеха. Этот блог — моя лабораторная работа по веб-разработке.
+
+      </p>
+      <p class="about-text" style="margin-top: 1rem;">
+        В проекте реализован динамический блог с генерацией случайных постов через библиотеку Faker,
+        системой комментариев с ответами и полным покрытием функционала автотестами (pytest).
+      </p>
+
+      <div class="about-stats">
+        <div>
+          <div class="about-stat-value">5</div>
+          <div class="about-stat-label">Постов в блоге</div>
+        </div>
+        <div>
+          <div class="about-stat-value">39</div>
+          <div class="about-stat-label">Автотестов</div>
+        </div>
+        <div>
+          <div class="about-stat-value">7</div>
+          <div class="about-stat-label">Страниц</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

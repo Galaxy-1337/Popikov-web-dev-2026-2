@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="section-header">
+    <span class="section-title">Параметры URL</span>
+    <span class="section-line"></span>
+    <span class="section-count">GET-параметры</span>
+  </div>
+
+  {% if params %}
+    <div class="posts-grid" style="grid-template-columns: 1fr;">
+      <article class="post-card">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="m9 15 3-3 3 3"/><path d="M12 12V4"/></svg>
+            Параметры из строки запроса
+          </div>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                  <th style="text-align: left; padding: 0.5rem; color: var(--brand-primary);">Название</th>
+                  <th style="text-align: left; padding: 0.5rem; color: var(--brand-primary);">Значение</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in params.items() %}
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                  <td style="padding: 0.5rem;"><code style="background: var(--bg-page); padding: 0.2rem 0.4rem; border-radius: 4px;">{{ key }}</code></td>
+                  <td style="padding: 0.5rem;"><code style="background: var(--bg-page); padding: 0.2rem 0.4rem; border-radius: 4px;">{{ value }}</code></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+    </div>
+  {% else %}
+    <div class="about-card" style="text-align: center;">
+      <div class="about-stats" style="justify-content: center; border-top: none;">
+        <div>
+          <div class="about-stat-value">❓</div>
+          <div class="about-stat-label">Нет параметров</div>
+        </div>
+      </div>
+      <p class="about-text" style="text-align: center;">
+        Добавьте параметры в URL после знака ?<br>
+        Пример: <code style="background: var(--bg-page); padding: 0.2rem 0.4rem; border-radius: 4px;">/request-params/?name=Иван&age=20</code>
+      </p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

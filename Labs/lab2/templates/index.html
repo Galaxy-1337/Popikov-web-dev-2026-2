@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    Лабораторная работа №2
+  </div>
+  <h1 class="hero-title">Flask — запросы и формы</h1>
+  <p class="hero-subtitle">Изучение параметров запроса, заголовков, cookies и валидации форм</p>
+</section>
+
+<!-- Карточки -->
+<div class="container">
+  <div class="section-header">
+    <span class="section-title">Разделы</span>
+    <span class="section-line"></span>
+    <span class="section-count">5 страниц</span>
+  </div>
+
+  <div class="posts-grid">
+
+    <!-- Карточка 1: Параметры URL -->
+    <a href="{{ url_for('request_params') }}" class="post-card" style="text-decoration: none; display: block;">
+      <div class="post-card-body">
+        <div class="post-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          GET-параметры
+        </div>
+        <h2 class="post-card-title">Параметры URL</h2>
+        <p class="post-card-excerpt">Отображает все query-параметры, переданные в строке запроса</p>
+        <div class="post-card-footer">
+          <div class="post-card-author">
+            <div class="author-avatar-sm">🔗</div>
+            Перейти
+          </div>
+          <span class="btn-read" style="cursor: pointer;">
+            Открыть
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Карточка 2: Заголовки запроса -->
+    <a href="{{ url_for('request_headers') }}" class="post-card" style="text-decoration: none; display: block;">
+      <div class="post-card-body">
+        <div class="post-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" x2="20" y1="19" y2="19"/>
+          </svg>
+          HTTP-headers
+        </div>
+        <h2 class="post-card-title">Заголовки запроса</h2>
+        <p class="post-card-excerpt">Список всех HTTP-заголовков текущего запроса</p>
+        <div class="post-card-footer">
+          <div class="post-card-author">
+            <div class="author-avatar-sm">📋</div>
+            Перейти
+          </div>
+          <span class="btn-read" style="cursor: pointer;">
+            Открыть
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Карточка 3: Cookie -->
+    <a href="{{ url_for('request_cookies') }}" class="post-card" style="text-decoration: none; display: block;">
+      <div class="post-card-body">
+        <div class="post-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
+          </svg>
+          Хранение данных
+        </div>
+        <h2 class="post-card-title">Cookie</h2>
+        <p class="post-card-excerpt">Установка и удаление куки при каждом посещении</p>
+        <div class="post-card-footer">
+          <div class="post-card-author">
+            <div class="author-avatar-sm">🍪</div>
+            Перейти
+          </div>
+          <span class="btn-read" style="cursor: pointer;">
+            Открыть
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Карточка 4: Параметры формы -->
+    <a href="{{ url_for('request_form') }}" class="post-card" style="text-decoration: none; display: block;">
+      <div class="post-card-body">
+        <div class="post-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          POST-данные
+        </div>
+        <h2 class="post-card-title">Параметры формы</h2>
+        <p class="post-card-excerpt">Отображение POST-данных, введённых пользователем в форму</p>
+        <div class="post-card-footer">
+          <div class="post-card-author">
+            <div class="author-avatar-sm">📝</div>
+            Перейти
+          </div>
+          <span class="btn-read" style="cursor: pointer;">
+            Открыть
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Карточка 5: Валидация телефона -->
+    <a href="{{ url_for('phone_validator') }}" class="post-card" style="text-decoration: none; display: block;">
+      <div class="post-card-body">
+        <div class="post-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Проверка формата
+        </div>
+        <h2 class="post-card-title">Валидация телефона</h2>
+        <p class="post-card-excerpt">Проверка и форматирование номера телефона с расширенной валидацией</p>
+        <div class="post-card-footer">
+          <div class="post-card-author">
+            <div class="author-avatar-sm">📞</div>
+            Перейти
+          </div>
+          <span class="btn-read" style="cursor: pointer;">
+            Открыть
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+{% endblock %}

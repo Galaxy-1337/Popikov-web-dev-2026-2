@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="section-header">
+    <span class="section-title">Cookie</span>
+    <span class="section-line"></span>
+    <span class="section-count">Хранение данных</span>
+  </div>
+
+  <div class="posts-grid" style="grid-template-columns: 1fr;">
+    <article class="post-card">
+      <div class="post-card-body" style="text-align: center;">
+        <div class="post-card-meta" style="justify-content: center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Cookie: user_preference
+        </div>
+
+        {% if cookie_value %}
+          <div class="about-stats" style="justify-content: center; border-top: none; margin-bottom: 1rem;">
+            <div>
+              <div class="about-stat-value" style="font-size: 1rem;">Текущее значение</div>
+              <div class="about-stat-label" style="font-size: 1.2rem; color: var(--brand-primary);">{{ cookie_value }}</div>
+            </div>
+          </div>
+          <a href="{{ url_for('request_cookies', action='delete') }}" class="btn-read" style="background: var(--brand-secondary-light); color: var(--brand-secondary); margin-top: 0.5rem;">
+            🗑️ Удалить cookie
+          </a>
+        {% else %}
+          <div class="about-stats" style="justify-content: center; border-top: none; margin-bottom: 1rem;">
+            <div>
+              <div class="about-stat-value" style="font-size: 1rem;">❌</div>
+              <div class="about-stat-label">Cookie не установлен</div>
+            </div>
+          </div>
+          <a href="{{ url_for('request_cookies', action='set') }}" class="btn-read">
+            📝 Установить cookie (значение: dark_mode)
+          </a>
+        {% endif %}
+      </div>
+    </article>
+  </div>
+
+  <div class="about-card" style="margin-top: 1.5rem;">
+    <div class="about-stats" style="justify-content: flex-start; border-top: none; gap: 1rem; flex-wrap: wrap;">
+      <div>
+        <div class="about-stat-value" style="font-size: 1rem;">📖 Что такое Cookie?</div>
+        <div class="about-stat-label">Небольшие фрагменты данных, которые сервер отправляет браузеру</div>
+      </div>
+      <div>
+        <div class="about-stat-value" style="font-size: 1rem;">🔄 Действия</div>
+        <div class="about-stat-label">Установка cookie (на 30 дней) и удаление</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
